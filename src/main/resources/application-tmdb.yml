@@ -7,4 +7,5 @@ tmdb:
   uri:
     movie:
       now-playing: /movie/now_playing
+      details: /movie/{movie_id}
 
