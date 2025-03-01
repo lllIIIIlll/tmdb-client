@@ -2,10 +2,12 @@ package net.ow.movie.tmdb.feign;
 
 import net.ow.movie.tmdb.config.TMDBFeignClientConfig;
 import net.ow.movie.tmdb.dto.common.PagedResultDTO;
+import net.ow.movie.tmdb.dto.movie.MovieDTO;
 import net.ow.movie.tmdb.dto.movie.MovieNowPlayingResponse;
 import net.ow.movie.tmdb.dto.search.SearchResultDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(
@@ -25,4 +27,10 @@ public interface TMDBFeignClient {
             @RequestParam("language") String language,
             @RequestParam("page") Integer page,
             @RequestParam("region") String region);
+
+    @GetMapping("${tmdb.uri.movie.details}")
+    MovieDTO getMovieDetails(
+            @PathVariable("movie_id") Integer id,
+            @RequestParam("append_to_response") String appendToResponse,
+            @RequestParam("language") String language);
 }
