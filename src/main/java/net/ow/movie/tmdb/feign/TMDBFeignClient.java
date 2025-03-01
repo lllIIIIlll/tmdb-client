@@ -14,5 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface TMDBFeignClient {
     @GetMapping("${tmdb.search}")
     PagedResultDTO<SearchResultDTO> search(
-            @RequestParam("query") String query, @RequestParam("language") String language);
+            @RequestParam("query") String query,
+            @RequestParam("include_adult") Boolean includeAdult,
+            @RequestParam("language") String language,
+            @RequestParam("page") Integer page);
 }
