@@ -4,4 +4,7 @@ tmdb:
   base-url: https://api.themoviedb.org
   api-version: 3
   search: /search/multi
+  uri:
+    movie:
+      now-playing: /movie/now_playing
 
