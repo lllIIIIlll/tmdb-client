@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
         url = "${tmdb.base-url}" + "/" + "${tmdb.api-version}",
         configuration = TMDBFeignClientConfig.class)
 public interface TMDBFeignClient {
-    @GetMapping("${tmdb.search}")
+    @GetMapping("${tmdb.uri.search.multi}")
     PagedResponse<SearchResult> search(
             @RequestParam("query") String query,
             @RequestParam("include_adult") Boolean includeAdult,
