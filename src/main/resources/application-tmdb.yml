@@ -3,8 +3,9 @@ tmdb:
     access-token: "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MDVhOTZhMTYxMWI1NzgwMTdhNGQ2ODEyZWNiYTA3YyIsIm5iZiI6MTY4MTEyODYyNS4xNDEsInN1YiI6IjY0MzNmY2IxNmRlYTNhMDExMmU1NTM3MCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.UL3UE2b2trPEbVY7vKboXtvQg7SCzRUjR0H7CNRbO7s"
   base-url: https://api.themoviedb.org
   api-version: 3
-  search: /search/multi
   uri:
+    search:
+      multi: /search/multi
     movie:
       now-playing: /movie/now_playing
       details: /movie/{movie_id}
