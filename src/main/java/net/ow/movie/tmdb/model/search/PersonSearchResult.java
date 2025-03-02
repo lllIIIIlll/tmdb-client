@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.dto.search;
+package net.ow.movie.tmdb.model.search;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ import lombok.ToString;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class SearchPersonDTO extends SearchResultDTO {
+public class PersonSearchResult extends SearchResult {
     protected Boolean adult;
 
     protected BigDecimal popularity;
@@ -29,5 +29,5 @@ public class SearchPersonDTO extends SearchResultDTO {
     private String profilePath;
 
     @JsonAlias("known_for")
-    private List<SearchResultDTO> knownFor;
+    private List<SearchResult> knownFor;
 }

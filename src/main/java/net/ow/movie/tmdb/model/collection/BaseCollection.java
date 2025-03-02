@@ -1,10 +1,10 @@
-package net.ow.movie.tmdb.dto.collection;
+package net.ow.movie.tmdb.model.collection;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class CollectionDTO {
+public class BaseCollection {
     private Integer id;
 
     private String name;

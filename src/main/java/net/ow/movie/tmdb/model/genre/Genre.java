@@ -1,9 +1,9 @@
-package net.ow.movie.tmdb.dto.genre;
+package net.ow.movie.tmdb.model.genre;
 
 import lombok.Data;
 
 @Data
-public class GenreDTO {
+public class Genre {
     private Integer id;
 
     private String name;

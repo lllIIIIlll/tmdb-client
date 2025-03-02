@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.dto.search;
+package net.ow.movie.tmdb.model.search;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -15,7 +15,7 @@ import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class SearchMovieDTO extends SearchResultDTO {
+public class MovieSearchResult extends SearchResult {
     protected Boolean adult;
 
     protected BigDecimal popularity;

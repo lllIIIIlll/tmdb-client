@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.dto.movie;
+package net.ow.movie.tmdb.model.movie;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,27 +7,27 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
-import net.ow.movie.tmdb.dto.collection.CollectionDTO;
-import net.ow.movie.tmdb.dto.company.CompanyDTO;
-import net.ow.movie.tmdb.dto.country.CountryDTO;
-import net.ow.movie.tmdb.dto.genre.GenreDTO;
-import net.ow.movie.tmdb.dto.language.LanguageDTO;
+import net.ow.movie.tmdb.model.collection.BaseCollection;
+import net.ow.movie.tmdb.model.company.BaseCompany;
+import net.ow.movie.tmdb.model.country.Country;
+import net.ow.movie.tmdb.model.genre.Genre;
+import net.ow.movie.tmdb.model.language.Language;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-public class MovieDTO {
+public class Movie {
     private Boolean adult;
 
     @JsonAlias("backdrop_path")
     private String backdropPath;
 
     @JsonAlias("belongs_to_collection")
-    private CollectionDTO belongsToCollection;
+    private BaseCollection belongsToCollection;
 
     private BigDecimal budget;
 
-    private List<GenreDTO> genres;
+    private List<Genre> genres;
 
     private String homepage;
 
@@ -50,10 +50,10 @@ public class MovieDTO {
     private String posterPath;
 
     @JsonAlias("production_companies")
-    private List<CompanyDTO> productionCompanies;
+    private List<BaseCompany> productionCompanies;
 
     @JsonAlias("production_countries")
-    private List<CountryDTO> productionCountries;
+    private List<Country> productionCountries;
 
     @JsonAlias("release_date")
     @JsonSerialize(using = DateInstantSerializer.class)
@@ -65,7 +65,7 @@ public class MovieDTO {
     private Integer runtime;
 
     @JsonAlias("spoken_languages")
-    private List<LanguageDTO> spokenLanguages;
+    private List<Language> spokenLanguages;
 
     private String status;
 

@@ -1,10 +1,10 @@
-package net.ow.movie.tmdb.dto.language;
+package net.ow.movie.tmdb.model.language;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class LanguageDTO {
+public class Language {
     @JsonAlias("english_name")
     private String englishName;
 
