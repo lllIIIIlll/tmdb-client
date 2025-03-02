@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.dto.search;
+package net.ow.movie.tmdb.model.search;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -13,11 +13,11 @@ import net.ow.movie.tmdb.constant.MediaType;
         property = "media_type",
         visible = true)
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = SearchMovieDTO.class, name = MediaType.MOVIE),
-    @JsonSubTypes.Type(value = SearchTVShowDTO.class, name = MediaType.TV_SHOW),
-    @JsonSubTypes.Type(value = SearchPersonDTO.class, name = MediaType.PERSON)
+    @JsonSubTypes.Type(value = MovieSearchResult.class, name = MediaType.MOVIE),
+    @JsonSubTypes.Type(value = TVSearchResult.class, name = MediaType.TV_SHOW),
+    @JsonSubTypes.Type(value = PersonSearchResult.class, name = MediaType.PERSON)
 })
-public abstract class SearchResultDTO {
+public abstract class SearchResult {
     protected Integer id;
 
     @JsonAlias("media_type")

@@ -1,11 +1,11 @@
-package net.ow.movie.tmdb.dto.common;
+package net.ow.movie.tmdb.model.common;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import java.util.List;
 import lombok.Data;
 
 @Data
-public class PagedResultDTO<T> {
+public class PagedResponse<T> {
     private Integer page;
 
     private List<T> results;

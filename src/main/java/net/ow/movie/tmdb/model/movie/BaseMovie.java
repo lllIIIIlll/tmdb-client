@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.dto.search;
+package net.ow.movie.tmdb.model.movie;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,15 +7,13 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-public class SearchTVShowDTO extends SearchResultDTO {
+public class BaseMovie {
+    protected Integer id;
+
     protected Boolean adult;
 
     protected BigDecimal popularity;
@@ -42,16 +40,13 @@ public class SearchTVShowDTO extends SearchResultDTO {
     @JsonAlias("vote_count")
     protected String voteCount;
 
-    private String name;
+    private String title;
 
-    @JsonAlias("original_name")
-    private String originalName;
+    @JsonAlias("original_title")
+    private String originalTitle;
 
-    @JsonAlias("first_air_date")
+    @JsonAlias("release_date")
     @JsonSerialize(using = DateInstantSerializer.class)
     @JsonDeserialize(using = DateInstantDeserializer.class)
-    private Instant firstAirDate;
-
-    @JsonAlias("origin_country")
-    private List<String> originCountry;
+    private Instant releaseDate;
 }

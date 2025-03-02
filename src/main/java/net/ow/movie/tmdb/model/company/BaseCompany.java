@@ -1,10 +1,10 @@
-package net.ow.movie.tmdb.dto.company;
+package net.ow.movie.tmdb.model.company;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class CompanyDTO {
+public class BaseCompany {
     private Integer id;
 
     @JsonAlias("logo_path")
