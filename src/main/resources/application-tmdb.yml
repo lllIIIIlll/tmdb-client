@@ -9,4 +9,6 @@ tmdb:
     movie:
       now-playing: /movie/now_playing
       details: /movie/{movie_id}
+    genre:
+      list: /genre/list
 
