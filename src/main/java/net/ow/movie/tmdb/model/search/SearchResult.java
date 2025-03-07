@@ -17,7 +17,7 @@ import net.ow.movie.tmdb.constant.MediaType;
     @JsonSubTypes.Type(value = TVSearchResult.class, name = MediaType.TV_SHOW),
     @JsonSubTypes.Type(value = PersonSearchResult.class, name = MediaType.PERSON)
 })
-public abstract class SearchResult {
+public class SearchResult {
     protected Integer id;
 
     @JsonAlias("media_type")

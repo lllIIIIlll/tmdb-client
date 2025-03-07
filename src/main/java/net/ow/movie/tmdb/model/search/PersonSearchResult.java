@@ -11,9 +11,9 @@ import lombok.ToString;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class PersonSearchResult extends SearchResult {
-    protected Boolean adult;
+    private Boolean adult;
 
-    protected BigDecimal popularity;
+    private BigDecimal popularity;
 
     private String name;
 
