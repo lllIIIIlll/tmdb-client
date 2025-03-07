@@ -16,31 +16,31 @@ import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class MovieSearchResult extends SearchResult {
-    protected Boolean adult;
+    private Boolean adult;
 
-    protected BigDecimal popularity;
+    private BigDecimal popularity;
 
     @JsonAlias("backdrop_path")
-    protected String backdropPath;
+    private String backdropPath;
 
-    protected String overview;
+    private String overview;
 
     @JsonAlias("poster_path")
-    protected String posterPath;
+    private String posterPath;
 
     @JsonAlias("original_language")
-    protected String originalLanguage;
+    private String originalLanguage;
 
     @JsonAlias("genre_ids")
-    protected List<Integer> genreIds;
+    private List<Integer> genreIds;
 
-    protected Boolean video;
+    private Boolean video;
 
     @JsonAlias("vote_average")
-    protected String voteAverage;
+    private String voteAverage;
 
     @JsonAlias("vote_count")
-    protected String voteCount;
+    private String voteCount;
 
     private String title;
 
