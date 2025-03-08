@@ -7,11 +7,13 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
+import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.model.collection.BaseCollection;
 import net.ow.movie.tmdb.model.company.BaseCompany;
 import net.ow.movie.tmdb.model.country.Country;
 import net.ow.movie.tmdb.model.genre.Genre;
 import net.ow.movie.tmdb.model.language.Language;
+import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
@@ -20,6 +22,8 @@ public class Movie {
     private Boolean adult;
 
     @JsonAlias("backdrop_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String backdropPath;
 
     @JsonAlias("belongs_to_collection")
@@ -47,6 +51,8 @@ public class Movie {
     private BigDecimal popularity;
 
     @JsonAlias("poster_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String posterPath;
 
     @JsonAlias("production_companies")

@@ -1,6 +1,9 @@
 tmdb:
   base-url: https://api.themoviedb.org
   api-version: 3
+  image:
+    size: original
+    url: https://image.tmdb.org/t/p
   uri:
     search:
       multi: /search/multi
