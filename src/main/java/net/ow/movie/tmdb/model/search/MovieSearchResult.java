@@ -9,6 +9,8 @@ import java.util.List;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
+import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
@@ -21,11 +23,15 @@ public class MovieSearchResult extends SearchResult {
     private BigDecimal popularity;
 
     @JsonAlias("backdrop_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String backdropPath;
 
     private String overview;
 
     @JsonAlias("poster_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String posterPath;
 
     @JsonAlias("original_language")

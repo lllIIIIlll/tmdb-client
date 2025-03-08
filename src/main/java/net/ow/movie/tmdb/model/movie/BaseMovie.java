@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
+import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
+import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
@@ -19,11 +21,15 @@ public class BaseMovie {
     protected BigDecimal popularity;
 
     @JsonAlias("backdrop_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     protected String backdropPath;
 
     protected String overview;
 
     @JsonAlias("poster_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     protected String posterPath;
 
     @JsonAlias("original_language")

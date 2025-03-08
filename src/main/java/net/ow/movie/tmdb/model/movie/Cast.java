@@ -1,6 +1,10 @@
 package net.ow.movie.tmdb.model.movie;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
+import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 
 public class Cast {
     private Boolean adult;
@@ -20,6 +24,8 @@ public class Cast {
     private Double popularity;
 
     @JsonAlias("profile_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String profilePath;
 
     @JsonAlias("cast_id")
