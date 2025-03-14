@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.model.search;
+package net.ow.movie.tmdb.model.movie;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,46 +7,44 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-@ToString(callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-public class MovieSearchResult extends SearchResult {
-    private Boolean adult;
+public class TMDBBaseMovie {
+    protected Integer id;
 
-    private BigDecimal popularity;
+    protected Boolean adult;
+
+    protected BigDecimal popularity;
 
     @JsonAlias("backdrop_path")
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
-    private String backdropPath;
+    protected String backdropPath;
 
-    private String overview;
+    protected String overview;
 
     @JsonAlias("poster_path")
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
-    private String posterPath;
+    protected String posterPath;
 
     @JsonAlias("original_language")
-    private String originalLanguage;
+    protected String originalLanguage;
 
     @JsonAlias("genre_ids")
-    private List<Integer> genreIds;
+    protected List<Integer> genreIds;
 
-    private Boolean video;
+    protected Boolean video;
 
     @JsonAlias("vote_average")
-    private String voteAverage;
+    protected String voteAverage;
 
     @JsonAlias("vote_count")
-    private String voteCount;
+    protected String voteCount;
 
     private String title;
 

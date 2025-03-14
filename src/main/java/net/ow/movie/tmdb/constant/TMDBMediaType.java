@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class MediaType {
+public class TMDBMediaType {
     public static final String MOVIE = "movie";
 
     public static final String TV_SHOW = "tv";

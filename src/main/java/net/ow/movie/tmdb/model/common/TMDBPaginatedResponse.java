@@ -5,7 +5,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class PagedResponse<T> {
+public class TMDBPaginatedResponse<T> {
     private Integer page;
 
     private List<T> results;

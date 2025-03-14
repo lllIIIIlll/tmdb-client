@@ -17,7 +17,7 @@ import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class TVSearchResult extends SearchResult {
+public class TMDBMovieSearchResult extends TMDBSearchResult {
     private Boolean adult;
 
     private BigDecimal popularity;
@@ -48,16 +48,13 @@ public class TVSearchResult extends SearchResult {
     @JsonAlias("vote_count")
     private String voteCount;
 
-    private String name;
+    private String title;
 
-    @JsonAlias("original_name")
-    private String originalName;
+    @JsonAlias("original_title")
+    private String originalTitle;
 
-    @JsonAlias("first_air_date")
+    @JsonAlias("release_date")
     @JsonSerialize(using = DateInstantSerializer.class)
     @JsonDeserialize(using = DateInstantDeserializer.class)
-    private Instant firstAirDate;
-
-    @JsonAlias("origin_country")
-    private List<String> originCountry;
+    private Instant releaseDate;
 }
