@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class Language {
+public class TMDBLanguage {
     @JsonAlias("english_name")
     private String englishName;
 

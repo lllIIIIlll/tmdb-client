@@ -8,7 +8,7 @@ import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-public class DateRange {
+public class TMDBDateRange {
     @JsonSerialize(using = DateInstantSerializer.class)
     @JsonDeserialize(using = DateInstantDeserializer.class)
     private Instant maximum;

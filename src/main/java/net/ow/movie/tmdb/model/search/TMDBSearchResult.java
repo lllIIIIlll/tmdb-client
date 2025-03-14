@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.Data;
-import net.ow.movie.tmdb.constant.MediaType;
+import net.ow.movie.tmdb.constant.TMDBMediaType;
 
 @Data
 @JsonTypeInfo(
@@ -13,11 +13,11 @@ import net.ow.movie.tmdb.constant.MediaType;
         property = "media_type",
         visible = true)
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = MovieSearchResult.class, name = MediaType.MOVIE),
-    @JsonSubTypes.Type(value = TVSearchResult.class, name = MediaType.TV_SHOW),
-    @JsonSubTypes.Type(value = PersonSearchResult.class, name = MediaType.PERSON)
+    @JsonSubTypes.Type(value = TMDBMovieSearchResult.class, name = TMDBMediaType.MOVIE),
+    @JsonSubTypes.Type(value = TMDBTVSearchResult.class, name = TMDBMediaType.TV_SHOW),
+    @JsonSubTypes.Type(value = TMDBPersonSearchResult.class, name = TMDBMediaType.PERSON)
 })
-public class SearchResult {
+public class TMDBSearchResult {
     protected Integer id;
 
     @JsonAlias("media_type")

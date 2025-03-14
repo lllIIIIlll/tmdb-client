@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.model.movie;
+package net.ow.movie.tmdb.model.search;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -7,52 +7,57 @@ import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-public class BaseMovie {
-    protected Integer id;
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class TMDBTVSearchResult extends TMDBSearchResult {
+    private Boolean adult;
 
-    protected Boolean adult;
-
-    protected BigDecimal popularity;
+    private BigDecimal popularity;
 
     @JsonAlias("backdrop_path")
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
-    protected String backdropPath;
+    private String backdropPath;
 
-    protected String overview;
+    private String overview;
 
     @JsonAlias("poster_path")
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
-    protected String posterPath;
+    private String posterPath;
 
     @JsonAlias("original_language")
-    protected String originalLanguage;
+    private String originalLanguage;
 
     @JsonAlias("genre_ids")
-    protected List<Integer> genreIds;
+    private List<Integer> genreIds;
 
-    protected Boolean video;
+    private Boolean video;
 
     @JsonAlias("vote_average")
-    protected String voteAverage;
+    private String voteAverage;
 
     @JsonAlias("vote_count")
-    protected String voteCount;
+    private String voteCount;
 
-    private String title;
+    private String name;
 
-    @JsonAlias("original_title")
-    private String originalTitle;
+    @JsonAlias("original_name")
+    private String originalName;
 
-    @JsonAlias("release_date")
+    @JsonAlias("first_air_date")
     @JsonSerialize(using = DateInstantSerializer.class)
     @JsonDeserialize(using = DateInstantDeserializer.class)
-    private Instant releaseDate;
+    private Instant firstAirDate;
+
+    @JsonAlias("origin_country")
+    private List<String> originCountry;
 }

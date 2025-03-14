@@ -8,17 +8,17 @@ import java.time.Instant;
 import java.util.List;
 import lombok.Data;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
-import net.ow.movie.tmdb.model.collection.BaseCollection;
-import net.ow.movie.tmdb.model.company.BaseCompany;
-import net.ow.movie.tmdb.model.country.Country;
-import net.ow.movie.tmdb.model.genre.Genre;
-import net.ow.movie.tmdb.model.language.Language;
+import net.ow.movie.tmdb.model.collection.TMDBBaseCollection;
+import net.ow.movie.tmdb.model.company.TMDBBaseCompany;
+import net.ow.movie.tmdb.model.country.TMDBCountry;
+import net.ow.movie.tmdb.model.genre.TMDBGenre;
+import net.ow.movie.tmdb.model.language.TMDBLanguage;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
-public class Movie {
+public class TMDBMovie {
     private Boolean adult;
 
     @JsonAlias("backdrop_path")
@@ -27,11 +27,11 @@ public class Movie {
     private String backdropPath;
 
     @JsonAlias("belongs_to_collection")
-    private BaseCollection belongsToCollection;
+    private TMDBBaseCollection belongsToCollection;
 
     private BigDecimal budget;
 
-    private List<Genre> genres;
+    private List<TMDBGenre> genres;
 
     private String homepage;
 
@@ -56,10 +56,10 @@ public class Movie {
     private String posterPath;
 
     @JsonAlias("production_companies")
-    private List<BaseCompany> productionCompanies;
+    private List<TMDBBaseCompany> productionCompanies;
 
     @JsonAlias("production_countries")
-    private List<Country> productionCountries;
+    private List<TMDBCountry> productionCountries;
 
     @JsonAlias("release_date")
     @JsonSerialize(using = DateInstantSerializer.class)
@@ -71,7 +71,7 @@ public class Movie {
     private Integer runtime;
 
     @JsonAlias("spoken_languages")
-    private List<Language> spokenLanguages;
+    private List<TMDBLanguage> spokenLanguages;
 
     private String status;
 

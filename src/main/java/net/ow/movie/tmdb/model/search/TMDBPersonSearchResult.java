@@ -1,40 +1,39 @@
-package net.ow.movie.tmdb.model.movie;
+package net.ow.movie.tmdb.model.search;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.math.BigDecimal;
+import java.util.List;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 
-public class Cast {
+@Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+public class TMDBPersonSearchResult extends TMDBSearchResult {
     private Boolean adult;
 
-    private Integer gender;
-
-    private Integer id;
-
-    @JsonAlias("known_for_department")
-    private String knownForDepartment;
+    private BigDecimal popularity;
 
     private String name;
 
     @JsonAlias("original_name")
     private String originalName;
 
-    private Double popularity;
+    private Integer gender;
+
+    @JsonAlias("known_for_department")
+    private String knownForDepartment;
 
     @JsonAlias("profile_path")
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
     private String profilePath;
 
-    @JsonAlias("cast_id")
-    private Integer castId;
-
-    private String character;
-
-    @JsonAlias("credit_id")
-    private String creditId;
-
-    private Integer order;
+    @JsonAlias("known_for")
+    private List<TMDBSearchResult> knownFor;
 }

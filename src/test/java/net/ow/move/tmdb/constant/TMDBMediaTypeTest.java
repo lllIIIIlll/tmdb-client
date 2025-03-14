@@ -3,83 +3,83 @@ package net.ow.move.tmdb.constant;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import net.ow.movie.tmdb.constant.MediaType;
+import net.ow.movie.tmdb.constant.TMDBMediaType;
 import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.Test;
 
-class MediaTypeTest {
+class TMDBMediaTypeTest {
     @Test
     void isMovieTest_OK() {
-        assertTrue(MediaType.isMovie("movie"));
+        assertTrue(TMDBMediaType.isMovie("movie"));
     }
 
     @Test
     void isMovieTest_whenUpperCase_OK() {
-        assertTrue(MediaType.isMovie("MOVIE"));
+        assertTrue(TMDBMediaType.isMovie("MOVIE"));
     }
 
     @Test
     void isMovieTest_whenNull_thenReturnFalse() {
-        assertFalse(MediaType.isMovie(null));
+        assertFalse(TMDBMediaType.isMovie(null));
     }
 
     @Test
     void isMovieTest_whenEmptyString_thenReturnFalse() {
-        assertFalse(MediaType.isMovie(Strings.EMPTY));
+        assertFalse(TMDBMediaType.isMovie(Strings.EMPTY));
     }
 
     @Test
     void isMovieTest_whenRandomString_thenReturnFalse() {
-        assertFalse(MediaType.isMovie("asdf"));
+        assertFalse(TMDBMediaType.isMovie("asdf"));
     }
 
     @Test
     void isTVShowTest_OK() {
-        assertTrue(MediaType.isTVShow("tv"));
+        assertTrue(TMDBMediaType.isTVShow("tv"));
     }
 
     @Test
     void isTVShowTest_whenUpperCase_OK() {
-        assertTrue(MediaType.isTVShow("TV"));
+        assertTrue(TMDBMediaType.isTVShow("TV"));
     }
 
     @Test
     void isTVShowTest_whenNull_thenReturnFalse() {
-        assertFalse(MediaType.isTVShow(null));
+        assertFalse(TMDBMediaType.isTVShow(null));
     }
 
     @Test
     void isTVShowTest_whenEmptyString_thenReturnFalse() {
-        assertFalse(MediaType.isTVShow(Strings.EMPTY));
+        assertFalse(TMDBMediaType.isTVShow(Strings.EMPTY));
     }
 
     @Test
     void isTVShowTest_whenRandomString_thenReturnFalse() {
-        assertFalse(MediaType.isTVShow("asdf"));
+        assertFalse(TMDBMediaType.isTVShow("asdf"));
     }
 
     @Test
     void isPersonTest_OK() {
-        assertTrue(MediaType.isPerson("person"));
+        assertTrue(TMDBMediaType.isPerson("person"));
     }
 
     @Test
     void isPersonTest_whenUpperCase_OK() {
-        assertTrue(MediaType.isPerson("PERSON"));
+        assertTrue(TMDBMediaType.isPerson("PERSON"));
     }
 
     @Test
     void isPersonTest_whenNull_thenReturnFalse() {
-        assertFalse(MediaType.isPerson(null));
+        assertFalse(TMDBMediaType.isPerson(null));
     }
 
     @Test
     void isPersonTest_whenEmptyString_thenReturnFalse() {
-        assertFalse(MediaType.isPerson(Strings.EMPTY));
+        assertFalse(TMDBMediaType.isPerson(Strings.EMPTY));
     }
 
     @Test
     void isPersonTest_whenRandomString_thenReturnFalse() {
-        assertFalse(MediaType.isPerson("asdf"));
+        assertFalse(TMDBMediaType.isPerson("asdf"));
     }
 }

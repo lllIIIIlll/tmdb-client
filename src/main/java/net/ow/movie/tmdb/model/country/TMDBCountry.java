@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import lombok.Data;
 
 @Data
-public class Country {
+public class TMDBCountry {
     @JsonAlias("iso_3166_1")
     private String iso31661;
 
