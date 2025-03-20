@@ -5,11 +5,13 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.StringJoiner;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
+import org.apache.logging.log4j.util.Strings;
 
 @Data
 @ToString(callSuper = true)
@@ -36,4 +38,25 @@ public class TMDBPersonSearchResult extends TMDBSearchResult {
 
     @JsonAlias("known_for")
     private List<TMDBSearchResult> knownFor;
+
+    public String getOverview() {
+        if (null == knownFor || knownFor.isEmpty()) {
+            return Strings.EMPTY;
+        }
+
+        StringJoiner joiner = new StringJoiner(",");
+
+        knownFor.forEach(
+                media -> {
+                    if (media instanceof TMDBMovieSearchResult) {
+                        joiner.add(((TMDBMovieSearchResult) media).getTitle());
+                    }
+
+                    if (media instanceof TMDBTVSearchResult) {
+                        joiner.add(((TMDBTVSearchResult) media).getName());
+                    }
+                });
+
+        return joiner.toString();
+    }
 }
