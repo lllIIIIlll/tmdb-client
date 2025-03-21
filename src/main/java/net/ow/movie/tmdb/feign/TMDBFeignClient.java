@@ -33,8 +33,13 @@ public interface TMDBFeignClient {
             @RequestParam("page") Integer page,
             @RequestParam("region") String region);
 
-    @GetMapping
+    @GetMapping("${tmdb.uri.movie.popular}")
     TMDBPaginatedResponse<TMDBBaseMovie> getMovies(
+            @RequestParam("language") String language,
+            @RequestParam("page") Integer page,
+            @RequestParam("region") String region);
+
+    TMDBPaginatedResponse<TMDBBaseMovie> getTopRatedMovies(
             @RequestParam("language") String language,
             @RequestParam("page") Integer page,
             @RequestParam("region") String region);
