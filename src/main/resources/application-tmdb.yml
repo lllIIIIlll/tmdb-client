@@ -9,6 +9,7 @@ tmdb:
       multi: /search/multi
     movie:
       now-playing: /movie/now_playing
+      popular: /movie/popular
       details: /movie/{movie_id}
       credits: /movie/{movie_id}/credits
     genre:
