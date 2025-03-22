@@ -45,8 +45,9 @@
         <jacoco.minimum-rate>0.80</jacoco.minimum-rate>
 
         <!-- Modules -->
-        <common.version>0.2.2</common.version>
-        <json-utils.version>0.2.2</json-utils.version>
+        <common.version>0.3.1</common.version>
+        <server-common.version>0.3.1</server-common.version>
+        <json-utils.version>0.3.1</json-utils.version>
     </properties>
 
     <distributionManagement>
@@ -103,6 +104,11 @@
             <groupId>net.ow.shared</groupId>
             <artifactId>common</artifactId>
             <version>${common.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.ow.shared</groupId>
+            <artifactId>server-common</artifactId>
+            <version>${server-common.version}</version>
         </dependency>
         <dependency>
             <groupId>net.ow.shared</groupId>

@@ -3,12 +3,14 @@ package net.ow.movie.tmdb.feign;
 import net.ow.movie.tmdb.config.TMDBFeignClientConfig;
 import net.ow.movie.tmdb.model.common.TMDBDateRangePaginatedResponse;
 import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
+import net.ow.movie.tmdb.model.discover.TMDBDiscoverMovieRequest;
 import net.ow.movie.tmdb.model.genre.TMDBGenreList;
 import net.ow.movie.tmdb.model.movie.TMDBBaseMovie;
 import net.ow.movie.tmdb.model.movie.TMDBCredits;
 import net.ow.movie.tmdb.model.movie.TMDBMovie;
 import net.ow.movie.tmdb.model.search.TMDBSearchResult;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,6 +27,11 @@ public interface TMDBFeignClient {
             @RequestParam("include_adult") Boolean includeAdult,
             @RequestParam("language") String language,
             @RequestParam("page") Integer page);
+
+    // Discover
+    @GetMapping("${tmdb.uri.discover.movie}")
+    TMDBPaginatedResponse<TMDBBaseMovie> discoverMovies(
+            @SpringQueryMap TMDBDiscoverMovieRequest request);
 
     // Movie
     @GetMapping("${tmdb.uri.movie.now-playing}")
