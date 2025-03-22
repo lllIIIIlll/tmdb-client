@@ -7,6 +7,8 @@ tmdb:
   uri:
     search:
       multi: /search/multi
+    discover:
+      movie: /discover/movie
     movie:
       now-playing: /movie/now_playing
       popular: /movie/popular
