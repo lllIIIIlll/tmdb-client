@@ -3,11 +3,13 @@ package net.ow.movie.tmdb.model.collection;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 
 @Data
+@AllArgsConstructor
 public class TMDBBaseCollection {
     private Integer id;
 

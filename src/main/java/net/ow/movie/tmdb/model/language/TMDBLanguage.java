@@ -1,9 +1,11 @@
 package net.ow.movie.tmdb.model.language;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class TMDBLanguage {
     @JsonAlias("english_name")
     private String englishName;

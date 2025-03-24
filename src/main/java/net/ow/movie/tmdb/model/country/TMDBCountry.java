@@ -1,9 +1,11 @@
 package net.ow.movie.tmdb.model.country;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class TMDBCountry {
     @JsonAlias("iso_3166_1")
     private String iso31661;
