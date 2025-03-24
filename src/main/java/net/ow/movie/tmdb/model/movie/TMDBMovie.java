@@ -8,6 +8,7 @@ import java.time.Instant;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.model.collection.TMDBBaseCollection;
 import net.ow.movie.tmdb.model.company.TMDBBaseCompany;
@@ -19,6 +20,7 @@ import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class TMDBMovie {
     private Boolean adult;

@@ -3,8 +3,10 @@ package net.ow.movie.tmdb.model.movie;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class TMDBCredits {
     private Integer id;
