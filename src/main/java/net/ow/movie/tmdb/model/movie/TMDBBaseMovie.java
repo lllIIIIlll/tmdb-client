@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
@@ -13,6 +14,7 @@ import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
+@AllArgsConstructor
 public class TMDBBaseMovie {
     protected Integer id;
 
