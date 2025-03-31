@@ -17,4 +17,5 @@ tmdb:
       credits: /movie/{movie_id}/credits
     genre:
       list: /genre/list
+      movie: /genre/movie/list
 
