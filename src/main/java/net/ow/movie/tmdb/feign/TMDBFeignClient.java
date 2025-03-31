@@ -68,4 +68,7 @@ public interface TMDBFeignClient {
 
     @GetMapping("${tmdb.uri.genre.movie}")
     TMDBGenreList getMovieGenres(@RequestParam("language") String language);
+
+    @GetMapping("${tmdb.uri.genre.tv-show}")
+    TMDBGenreList getTvShowGenres(@RequestParam("language") String language);
 }
