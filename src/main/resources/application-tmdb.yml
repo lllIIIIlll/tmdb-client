@@ -15,6 +15,8 @@ tmdb:
       top-rated: /movie/top_rated
       details: /movie/{movie_id}
       credits: /movie/{movie_id}/credits
+    tv-show:
+      airing-today: /tv/airing_today
     genre:
       list: /genre/list
       movie: /genre/movie/list
