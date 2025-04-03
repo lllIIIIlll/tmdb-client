@@ -9,6 +9,7 @@ tmdb:
       multi: /search/multi
     discover:
       movie: /discover/movie
+      tv-show: /discover/tv
     movie:
       now-playing: /movie/now_playing
       popular: /movie/popular

@@ -4,6 +4,7 @@ import net.ow.movie.tmdb.config.TMDBFeignClientConfig;
 import net.ow.movie.tmdb.model.common.TMDBDateRangePaginatedResponse;
 import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
 import net.ow.movie.tmdb.model.discover.TMDBDiscoverMovieRequest;
+import net.ow.movie.tmdb.model.discover.TMDBDiscoverTVShowRequest;
 import net.ow.movie.tmdb.model.genre.TMDBGenreList;
 import net.ow.movie.tmdb.model.movie.TMDBBaseMovie;
 import net.ow.movie.tmdb.model.movie.TMDBCredits;
@@ -33,6 +34,10 @@ public interface TMDBFeignClient {
     @GetMapping("${tmdb.uri.discover.movie}")
     TMDBPaginatedResponse<TMDBBaseMovie> discoverMovies(
             @SpringQueryMap TMDBDiscoverMovieRequest request);
+
+    @GetMapping("${tmdb.uri.discover.tv-show}")
+    TMDBPaginatedResponse<TMDBBaseTV> discoverTVShows(
+            @SpringQueryMap TMDBDiscoverTVShowRequest request);
 
     // Movie
     @GetMapping("${tmdb.uri.movie.now-playing}")
