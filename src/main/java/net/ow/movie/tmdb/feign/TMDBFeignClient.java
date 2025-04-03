@@ -9,6 +9,7 @@ import net.ow.movie.tmdb.model.movie.TMDBBaseMovie;
 import net.ow.movie.tmdb.model.movie.TMDBCredits;
 import net.ow.movie.tmdb.model.movie.TMDBMovie;
 import net.ow.movie.tmdb.model.search.TMDBSearchResult;
+import net.ow.movie.tmdb.model.tv.TMDBBaseTV;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -61,6 +62,13 @@ public interface TMDBFeignClient {
     @GetMapping("${tmdb.uri.movie.credits}")
     TMDBCredits getMovieCredits(
             @PathVariable("movie_id") Integer id, @RequestParam("language") String language);
+
+    // TV-Show
+    @GetMapping("${tmdb.uri.tv-show.airing-today}")
+    TMDBPaginatedResponse<TMDBBaseTV> getAiringTodayTVShows(
+            @RequestParam("language") String language,
+            @RequestParam("page") Integer page,
+            @RequestParam("timezone") String timezone);
 
     // Genre
     @GetMapping("${tmdb.uri.genre.list}")
