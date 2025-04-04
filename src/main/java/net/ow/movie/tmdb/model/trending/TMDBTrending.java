@@ -12,7 +12,10 @@ import net.ow.movie.tmdb.constant.TMDBMediaType;
         include = JsonTypeInfo.As.EXISTING_PROPERTY,
         property = "media_type",
         visible = true)
-@JsonSubTypes({@JsonSubTypes.Type(value = TMDBTrendingMovie.class, name = TMDBMediaType.MOVIE)})
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = TMDBTrendingMovie.class, name = TMDBMediaType.MOVIE),
+    @JsonSubTypes.Type(value = TMDBTrendingTVShow.class, name = TMDBMediaType.TV_SHOW)
+})
 public class TMDBTrending {
     protected Integer id;
 
