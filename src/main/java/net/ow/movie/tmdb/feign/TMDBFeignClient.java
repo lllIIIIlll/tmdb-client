@@ -42,6 +42,12 @@ public interface TMDBFeignClient {
             @SpringQueryMap TMDBDiscoverTVShowRequest request);
 
     // Trending
+    @GetMapping("${tmdb.uri.trending.all}")
+    TMDBPaginatedResponse<TMDBSearchResult> getTrending(
+            @RequestParam("time_window") String timeWindow,
+            @RequestParam("language") String language,
+            @RequestParam("page") Integer page);
+
     @GetMapping("${tmdb.uri.trending.movie}")
     TMDBPaginatedResponse<TMDBTrendingMovie> getTrendingMovies(
             @RequestParam("time_window") String timeWindow,
