@@ -11,6 +11,7 @@ tmdb:
       movie: /discover/movie
       tv-show: /discover/tv
     trending:
+      all: /trending/all/{time_window}
       movie: trending/movie/{time_window}
       tv: trending/tv/{time_window}
     movie:

@@ -14,7 +14,8 @@ import net.ow.movie.tmdb.constant.TMDBMediaType;
         visible = true)
 @JsonSubTypes({
     @JsonSubTypes.Type(value = TMDBTrendingMovie.class, name = TMDBMediaType.MOVIE),
-    @JsonSubTypes.Type(value = TMDBTrendingTVShow.class, name = TMDBMediaType.TV_SHOW)
+    @JsonSubTypes.Type(value = TMDBTrendingTVShow.class, name = TMDBMediaType.TV_SHOW),
+    @JsonSubTypes.Type(value = TMDBTrendingPerson.class, name = TMDBMediaType.PERSON)
 })
 public class TMDBTrending {
     protected Integer id;
