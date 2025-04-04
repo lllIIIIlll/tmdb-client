@@ -43,7 +43,7 @@ public class TMDBTrendingTVShow extends TMDBTrending {
     private String posterPath;
 
     @JsonAlias("genre_ids")
-    private Integer[] genreIds;
+    private List<Integer> genreIds;
 
     private BigDecimal popularity;
 
