@@ -45,10 +45,10 @@ public class TMDBBaseMovie {
     protected Boolean video;
 
     @JsonAlias("vote_average")
-    protected String voteAverage;
+    protected BigDecimal voteAverage;
 
     @JsonAlias("vote_count")
-    protected String voteCount;
+    protected Integer voteCount;
 
     private String title;
 

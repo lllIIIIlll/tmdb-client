@@ -43,10 +43,10 @@ public class TMDBMovieSearchResult extends TMDBSearchResult {
     private Boolean video;
 
     @JsonAlias("vote_average")
-    private String voteAverage;
+    private BigDecimal voteAverage;
 
     @JsonAlias("vote_count")
-    private String voteCount;
+    private Integer voteCount;
 
     private String title;
 

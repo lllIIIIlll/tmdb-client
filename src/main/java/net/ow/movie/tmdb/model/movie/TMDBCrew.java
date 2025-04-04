@@ -3,6 +3,7 @@ package net.ow.movie.tmdb.model.movie;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,7 +28,7 @@ public class TMDBCrew {
     @JsonAlias("original_name")
     private String originalName;
 
-    private Double popularity;
+    private BigDecimal popularity;
 
     @JsonAlias("profile_path")
     @JsonSerialize(using = ImagePathSerializer.class)

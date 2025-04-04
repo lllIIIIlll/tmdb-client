@@ -3,6 +3,7 @@ package net.ow.movie.tmdb.model.tv;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -45,7 +46,7 @@ public class TMDBBaseTVShow {
 
     private String overview;
 
-    private Integer popularity;
+    private BigDecimal popularity;
 
     @JsonAlias("poster_path")
     @JsonSerialize(using = ImagePathSerializer.class)
@@ -53,7 +54,7 @@ public class TMDBBaseTVShow {
     private String posterPath;
 
     @JsonAlias("vote_average")
-    private Integer voteAverage;
+    private BigDecimal voteAverage;
 
     @JsonAlias("vote_count")
     private Integer voteCount;

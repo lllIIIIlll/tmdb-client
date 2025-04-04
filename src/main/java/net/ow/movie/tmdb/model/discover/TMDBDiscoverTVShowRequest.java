@@ -1,5 +1,11 @@
 package net.ow.movie.tmdb.model.discover;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
+import java.math.BigDecimal;
+import java.time.Instant;
 import lombok.Builder;
 import lombok.Data;
 import net.ow.shared.common.server.annotation.QueryParameter;
@@ -8,19 +14,27 @@ import net.ow.shared.common.server.annotation.QueryParameter;
 @Builder
 public class TMDBDiscoverTVShowRequest {
     @QueryParameter(name = "air_date.gte")
-    private String airDateGte;
+    @JsonSerialize(using = InstantSerializer.class)
+    @JsonDeserialize(using = InstantDeserializer.class)
+    private Instant airDateGreaterThen;
 
     @QueryParameter(name = "air_date.lte")
-    private String airDateLte;
+    @JsonSerialize(using = InstantSerializer.class)
+    @JsonDeserialize(using = InstantDeserializer.class)
+    private String airDateLessThen;
 
     @QueryParameter(name = "first_air_date_year")
     private Integer firstAirDateYear;
 
     @QueryParameter(name = "first_air_date.gte")
-    private String firstAirDateGte;
+    @JsonSerialize(using = InstantSerializer.class)
+    @JsonDeserialize(using = InstantDeserializer.class)
+    private Instant firstAirDateGreaterThen;
 
     @QueryParameter(name = "first_air_date.lte")
-    private String firstAirDateLte;
+    @JsonSerialize(using = InstantSerializer.class)
+    @JsonDeserialize(using = InstantDeserializer.class)
+    private Instant firstAirDateLessThen;
 
     @QueryParameter(name = "include_adult")
     private Boolean includeAdult;
@@ -41,16 +55,16 @@ public class TMDBDiscoverTVShowRequest {
     private String timezone;
 
     @QueryParameter(name = "vote_average.gte")
-    private Float voteAverageGte;
+    private BigDecimal voteAverageGreaterThen;
 
     @QueryParameter(name = "vote_average.lte")
-    private Float voteAverageLte;
+    private BigDecimal voteAverageLessThen;
 
     @QueryParameter(name = "vote_count.gte")
-    private Integer voteCountGte;
+    private Integer voteCountGreaterThen;
 
     @QueryParameter(name = "vote_count.lte")
-    private Integer voteCountLte;
+    private Integer voteCountLessThen;
 
     @QueryParameter(name = "watch_region")
     private String watchRegion;
@@ -64,6 +78,9 @@ public class TMDBDiscoverTVShowRequest {
     @QueryParameter(name = "with_keywords")
     private String withKeywords;
 
+    @QueryParameter(name = "with_networks")
+    private Integer withNetworks;
+
     @QueryParameter(name = "with_origin_country")
     private String withOriginCountry;
 
@@ -71,10 +88,10 @@ public class TMDBDiscoverTVShowRequest {
     private String withOriginalLanguage;
 
     @QueryParameter(name = "with_runtime.gte")
-    private Integer withRuntimeGte;
+    private Integer withRuntimeGreaterThen;
 
     @QueryParameter(name = "with_runtime.lte")
-    private Integer withRuntimeLte;
+    private Integer withRuntimeLessThen;
 
     @QueryParameter(name = "with_status")
     private String withStatus;
