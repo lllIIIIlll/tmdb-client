@@ -10,6 +10,7 @@ import net.ow.movie.tmdb.model.movie.TMDBBaseMovie;
 import net.ow.movie.tmdb.model.movie.TMDBCredits;
 import net.ow.movie.tmdb.model.movie.TMDBMovie;
 import net.ow.movie.tmdb.model.search.TMDBSearchResult;
+import net.ow.movie.tmdb.model.trending.TMDBTrendingMovie;
 import net.ow.movie.tmdb.model.tv.TMDBBaseTV;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
@@ -38,6 +39,13 @@ public interface TMDBFeignClient {
     @GetMapping("${tmdb.uri.discover.tv-show}")
     TMDBPaginatedResponse<TMDBBaseTV> discoverTVShows(
             @SpringQueryMap TMDBDiscoverTVShowRequest request);
+
+    // Trending
+    @GetMapping("${tmdb.uri.trending.movie}")
+    TMDBPaginatedResponse<TMDBTrendingMovie> getTrendingMovies(
+            @RequestParam("time_window") String timeWindow,
+            @RequestParam("language") String language,
+            @RequestParam("page") Integer page);
 
     // Movie
     @GetMapping("${tmdb.uri.movie.now-playing}")
