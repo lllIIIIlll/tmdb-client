@@ -17,7 +17,7 @@ import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 @Data
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
-public class TMDBTVSearchResult extends TMDBSearchResult {
+public class TMDBTVShowSearchResult extends TMDBSearchResult {
     private Boolean adult;
 
     private BigDecimal popularity;

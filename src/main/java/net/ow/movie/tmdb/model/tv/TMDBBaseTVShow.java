@@ -16,7 +16,7 @@ import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TMDBBaseTV {
+public class TMDBBaseTVShow {
     @JsonSerialize(using = ImagePathSerializer.class)
     @JsonDeserialize(using = ImagePathDeserializer.class)
     @JsonAlias("backdrop_path")

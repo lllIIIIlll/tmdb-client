@@ -11,7 +11,7 @@ import net.ow.movie.tmdb.model.movie.TMDBCredits;
 import net.ow.movie.tmdb.model.movie.TMDBMovie;
 import net.ow.movie.tmdb.model.search.TMDBSearchResult;
 import net.ow.movie.tmdb.model.trending.TMDBTrendingMovie;
-import net.ow.movie.tmdb.model.tv.TMDBBaseTV;
+import net.ow.movie.tmdb.model.tv.TMDBBaseTVShow;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +37,7 @@ public interface TMDBFeignClient {
             @SpringQueryMap TMDBDiscoverMovieRequest request);
 
     @GetMapping("${tmdb.uri.discover.tv-show}")
-    TMDBPaginatedResponse<TMDBBaseTV> discoverTVShows(
+    TMDBPaginatedResponse<TMDBBaseTVShow> discoverTVShows(
             @SpringQueryMap TMDBDiscoverTVShowRequest request);
 
     // Trending
@@ -78,7 +78,7 @@ public interface TMDBFeignClient {
 
     // TV-Show
     @GetMapping("${tmdb.uri.tv-show.airing-today}")
-    TMDBPaginatedResponse<TMDBBaseTV> getAiringTodayTVShows(
+    TMDBPaginatedResponse<TMDBBaseTVShow> getAiringTodayTVShows(
             @RequestParam("language") String language,
             @RequestParam("page") Integer page,
             @RequestParam("timezone") String timezone);

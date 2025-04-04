@@ -52,8 +52,8 @@ public class TMDBPersonSearchResult extends TMDBSearchResult {
                         joiner.add(((TMDBMovieSearchResult) media).getTitle());
                     }
 
-                    if (media instanceof TMDBTVSearchResult) {
-                        joiner.add(((TMDBTVSearchResult) media).getName());
+                    if (media instanceof TMDBTVShowSearchResult) {
+                        joiner.add(((TMDBTVShowSearchResult) media).getName());
                     }
                 });
 
