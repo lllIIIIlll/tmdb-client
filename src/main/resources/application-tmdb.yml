@@ -10,6 +10,8 @@ tmdb:
     discover:
       movie: /discover/movie
       tv-show: /discover/tv
+    trending:
+      movie: trending/movie/{time_window}
     movie:
       now-playing: /movie/now_playing
       popular: /movie/popular
