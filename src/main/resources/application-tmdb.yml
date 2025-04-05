@@ -23,7 +23,6 @@ tmdb:
     tv-show:
       airing-today: /tv/airing_today
     genre:
-      list: /genre/list
       movie: /genre/movie/list
       tv-show: /genre/tv/list
 
