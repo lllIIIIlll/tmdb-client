@@ -98,9 +98,6 @@ public interface TMDBFeignClient {
             @RequestParam("timezone") String timezone);
 
     // Genre
-    @GetMapping("${tmdb.uri.genre.list}")
-    TMDBGenreList getGenres(@RequestParam("language") String language);
-
     @GetMapping("${tmdb.uri.genre.movie}")
     TMDBGenreList getMovieGenres(@RequestParam("language") String language);
 
