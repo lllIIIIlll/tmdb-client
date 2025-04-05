@@ -38,6 +38,8 @@ public class TMDBTrendingMovie extends TMDBTrending {
     private String overview;
 
     @JsonAlias("poster_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String posterPath;
 
     @JsonAlias("genre_ids")
