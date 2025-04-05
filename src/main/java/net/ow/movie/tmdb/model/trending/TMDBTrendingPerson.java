@@ -1,6 +1,7 @@
 package net.ow.movie.tmdb.model.trending;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.util.List;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 
 @Data
@@ -19,6 +21,7 @@ public class TMDBTrendingPerson extends TMDBTrending {
 
     @JsonAlias("backdrop_path")
     @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String backdropPath;
 
     private String name;
@@ -34,6 +37,8 @@ public class TMDBTrendingPerson extends TMDBTrending {
     private String knownForDepartment;
 
     @JsonAlias("profile_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
     private String profilePath;
 
     @JsonAlias("known_for")
