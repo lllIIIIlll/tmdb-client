@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 import net.ow.movie.tmdb.constant.TMDBJob;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.model.collection.TMDBBaseCollection;
+import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
 import net.ow.movie.tmdb.model.company.TMDBBaseCompany;
 import net.ow.movie.tmdb.model.country.TMDBCountry;
 import net.ow.movie.tmdb.model.genre.TMDBGenre;
@@ -98,7 +99,13 @@ public class TMDBMovie {
 
     private TMDBCredits credits;
 
-    private List<TMDBBaseMovie> recommendations;
+    private TMDBPaginatedResponse<TMDBBaseMovie> recommendations;
+
+    public List<TMDBBaseMovie> getRecommendations() {
+        return Optional.ofNullable(recommendations)
+                .map(TMDBPaginatedResponse::getResults)
+                .orElseGet(Collections::emptyList);
+    }
 
     public List<TMDBCast> getCast() {
         return Optional.ofNullable(credits)
