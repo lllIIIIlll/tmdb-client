@@ -1,8 +1,9 @@
 package net.ow.movie.tmdb.constant;
 
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class TMDBJob {
     public static final String DIRECTOR = "Director";
 
