@@ -1,4 +1,4 @@
-package net.ow.movie.tmdb.model.movie;
+package net.ow.movie.tmdb.model.person;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
