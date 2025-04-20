@@ -5,16 +5,21 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.ow.movie.tmdb.constant.TMDBJob;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.model.collection.TMDBBaseCollection;
 import net.ow.movie.tmdb.model.company.TMDBBaseCompany;
 import net.ow.movie.tmdb.model.country.TMDBCountry;
 import net.ow.movie.tmdb.model.genre.TMDBGenre;
 import net.ow.movie.tmdb.model.language.TMDBLanguage;
+import net.ow.movie.tmdb.model.person.TMDBCast;
+import net.ow.movie.tmdb.model.person.TMDBCrew;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
 import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
@@ -88,6 +93,34 @@ public class TMDBMovie {
     @JsonAlias("vote_average")
     private BigDecimal voteAverage;
 
-    @JsonAlias("vote_count")
+    @JsonAlias(value = "vote_count")
     private Integer voteCount;
+
+    private TMDBCredits credits;
+
+    private List<TMDBBaseMovie> recommendations;
+
+    public List<TMDBCast> getCast() {
+        return Optional.ofNullable(credits)
+                .map(TMDBCredits::getCast)
+                .orElseGet(Collections::emptyList);
+    }
+
+    public TMDBCrew getCrew(String job) {
+        return Optional.ofNullable(credits)
+                .map(TMDBCredits::getCrew)
+                .orElseGet(Collections::emptyList)
+                .stream()
+                .filter(crew -> crew.getJob().equals(job))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public TMDBCrew getDirector() {
+        return getCrew(TMDBJob.DIRECTOR);
+    }
+
+    public TMDBCrew getEditor() {
+        return getCrew(TMDBJob.EDITOR);
+    }
 }
