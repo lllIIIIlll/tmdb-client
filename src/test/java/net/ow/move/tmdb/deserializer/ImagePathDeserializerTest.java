@@ -23,14 +23,17 @@ class ImagePathDeserializerTest {
 
     @Mock private DeserializationContext deserializationContext;
 
-    private final String imageUrl = "http://image.tmdb.org/t/p";
+    private final String imageURL = "http://image.tmdb.org/t/p";
 
     private final String imageSize = "w500";
 
+    private final String notFoundImagePath = "/not-found-image.jpg";
+
     @BeforeEach
     void setUp() {
-        ReflectionTestUtils.setField(imagePathDeserializer, "imageUrl", imageUrl);
+        ReflectionTestUtils.setField(imagePathDeserializer, "imageURL", imageURL);
         ReflectionTestUtils.setField(imagePathDeserializer, "imageSize", imageSize);
+        ReflectionTestUtils.setField(imagePathDeserializer, "notFoundImageURL", notFoundImagePath);
     }
 
     @Test
@@ -39,7 +42,7 @@ class ImagePathDeserializerTest {
         String text = "/example.jpg";
         when(jsonParser.getText()).thenReturn(text);
 
-        String expectedUrl = imageUrl + "/" + imageSize + text;
+        String expectedUrl = imageURL + "/" + imageSize + text;
         String result = imagePathDeserializer.deserialize(jsonParser, deserializationContext);
 
         assertEquals(expectedUrl, result);
@@ -52,7 +55,7 @@ class ImagePathDeserializerTest {
 
         String result = imagePathDeserializer.deserialize(jsonParser, deserializationContext);
 
-        assertEquals("", result);
+        assertEquals(notFoundImagePath, result);
     }
 
     @Test
@@ -62,6 +65,6 @@ class ImagePathDeserializerTest {
 
         String result = imagePathDeserializer.deserialize(jsonParser, deserializationContext);
 
-        assertEquals("", result);
+        assertEquals(notFoundImagePath, result);
     }
 }

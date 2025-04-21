@@ -6,6 +6,7 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import lombok.SneakyThrows;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,13 +23,17 @@ class ImagePathSerializerTest {
 
     @Mock private SerializerProvider serializerProvider;
 
+    private final String notFoundImagePath = "/not-found-image.jpg";
+
     @BeforeEach
     void setUp() {
-        final String imageUrl = "http://image.tmdb.org/t/p";
-        ReflectionTestUtils.setField(imagePathSerializer, "imageUrl", imageUrl);
+        String imageURL = "http://image.tmdb.org/t/p";
+        ReflectionTestUtils.setField(imagePathSerializer, "imageURL", imageURL);
 
-        final String imageSize = "w500";
+        String imageSize = "w500";
         ReflectionTestUtils.setField(imagePathSerializer, "imageSize", imageSize);
+
+        ReflectionTestUtils.setField(imagePathSerializer, "notFoundImageURL", notFoundImagePath);
     }
 
     @Test
@@ -43,14 +48,21 @@ class ImagePathSerializerTest {
     @SneakyThrows
     void serializeTest_whenNullPosterPath_thenWritesEmptyString() {
         imagePathSerializer.serialize(null, jsonGenerator, serializerProvider);
-        verify(jsonGenerator).writeString("");
+        verify(jsonGenerator).writeString(Strings.EMPTY);
     }
 
     @Test
     @SneakyThrows
     void serializeTest_whenBlankPosterPath_thenWritesEmptyString() {
         imagePathSerializer.serialize("   ", jsonGenerator, serializerProvider);
-        verify(jsonGenerator).writeString("");
+        verify(jsonGenerator).writeString(Strings.EMPTY);
+    }
+
+    @Test
+    @SneakyThrows
+    void serializeTest_whenIsNotFoundImagePath_thenWritesEmptyString() {
+        imagePathSerializer.serialize(notFoundImagePath, jsonGenerator, serializerProvider);
+        verify(jsonGenerator).writeString(Strings.EMPTY);
     }
 
     @Test
