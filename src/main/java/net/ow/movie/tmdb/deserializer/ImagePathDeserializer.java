@@ -20,10 +20,16 @@ public class ImagePathDeserializer extends JsonDeserializer<String> {
     public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         String text = jsonParser.getText();
+
         if (null == text || text.isBlank()) {
             return notFoundImageURL;
         }
 
         return imageURL + "/" + imageSize + text;
+    }
+
+    @Override
+    public String getNullValue(DeserializationContext ctxt) {
+        return notFoundImageURL;
     }
 }

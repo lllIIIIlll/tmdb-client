@@ -67,4 +67,11 @@ class ImagePathDeserializerTest {
 
         assertEquals(notFoundImagePath, result);
     }
+
+    @Test
+    void getNullValueTest_OK() {
+        DeserializationContext context = null;
+        String result = imagePathDeserializer.getNullValue(context);
+        assertEquals(notFoundImagePath, result);
+    }
 }
