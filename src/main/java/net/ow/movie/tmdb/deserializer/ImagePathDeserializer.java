@@ -4,24 +4,26 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import java.io.IOException;
-import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
 
 public class ImagePathDeserializer extends JsonDeserializer<String> {
     @Value("${tmdb.image.url}")
-    private String imageUrl;
+    private String imageURL;
 
     @Value("${tmdb.image.size}")
     private String imageSize;
+
+    @Value("${tmdb.image.not-found}")
+    private String notFoundImageURL;
 
     @Override
     public String deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
         String text = jsonParser.getText();
         if (null == text || text.isBlank()) {
-            return Strings.EMPTY;
+            return notFoundImageURL;
         }
 
-        return imageUrl + "/" + imageSize + text;
+        return imageURL + "/" + imageSize + text;
     }
 }
