@@ -14,6 +14,7 @@ import net.ow.movie.tmdb.model.trending.TMDBTrending;
 import net.ow.movie.tmdb.model.trending.TMDBTrendingMovie;
 import net.ow.movie.tmdb.model.trending.TMDBTrendingTVShow;
 import net.ow.movie.tmdb.model.tv.TMDBBaseTVShow;
+import net.ow.movie.tmdb.model.tv.TMDBTVShow;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.SpringQueryMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -96,6 +97,12 @@ public interface TMDBFeignClient {
             @RequestParam("language") String language,
             @RequestParam("page") Integer page,
             @RequestParam("timezone") String timezone);
+
+    @GetMapping("${tmdb.uri.tv-show.details}")
+    TMDBTVShow getTVShowDetails(
+            @PathVariable("series_id") Integer id,
+            @RequestParam("append_to_response") String appendToResponse,
+            @RequestParam("language") String language);
 
     // Genre
     @GetMapping("${tmdb.uri.genre.movie}")

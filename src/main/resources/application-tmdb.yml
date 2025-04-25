@@ -23,6 +23,7 @@ tmdb:
       credits: /movie/{movie_id}/credits
     tv-show:
       airing-today: /tv/airing_today
+      details: /tv/{series_id}
     genre:
       movie: /genre/movie/list
       tv-show: /genre/tv/list
