@@ -1,9 +1,8 @@
-package net.ow.movie.tmdb.model.person;
+package net.ow.movie.tmdb.model.network;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import java.math.BigDecimal;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,32 +12,16 @@ import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TMDBCrew {
+public class TMDBNetwork {
     private Integer id;
 
-    @JsonAlias("credit_id")
-    private String creditId;
+    @JsonAlias("logo_path")
+    @JsonSerialize(using = ImagePathSerializer.class)
+    @JsonDeserialize(using = ImagePathDeserializer.class)
+    private String logoPath;
 
     private String name;
 
-    private Integer gender;
-
-    @JsonAlias("profile_path")
-    @JsonSerialize(using = ImagePathSerializer.class)
-    @JsonDeserialize(using = ImagePathDeserializer.class)
-    private String profilePath;
-
-    private Boolean adult;
-
-    @JsonAlias("known_for_department")
-    private String knownForDepartment;
-
-    @JsonAlias("original_name")
-    private String originalName;
-
-    private BigDecimal popularity;
-
-    private String department;
-
-    private String job;
+    @JsonAlias("origin_country")
+    private String originCountry;
 }
