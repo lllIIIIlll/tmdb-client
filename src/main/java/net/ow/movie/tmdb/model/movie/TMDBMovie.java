@@ -20,6 +20,7 @@ import net.ow.movie.tmdb.model.country.TMDBCountry;
 import net.ow.movie.tmdb.model.genre.TMDBGenre;
 import net.ow.movie.tmdb.model.language.TMDBLanguage;
 import net.ow.movie.tmdb.model.person.TMDBCast;
+import net.ow.movie.tmdb.model.person.TMDBCredits;
 import net.ow.movie.tmdb.model.person.TMDBCrew;
 import net.ow.movie.tmdb.serializer.ImagePathSerializer;
 import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
