@@ -24,6 +24,8 @@ tmdb:
     tv-show:
       airing-today: /tv/airing_today
       details: /tv/{series_id}
+      season:
+        details: /tv/{series_id}/season/{season_number}
     genre:
       movie: /genre/movie/list
       tv-show: /genre/tv/list
