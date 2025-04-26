@@ -1,11 +1,9 @@
-package net.ow.movie.tmdb.model.movie;
+package net.ow.movie.tmdb.model.person;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import net.ow.movie.tmdb.model.person.TMDBCast;
-import net.ow.movie.tmdb.model.person.TMDBCrew;
 
 @Data
 @NoArgsConstructor
