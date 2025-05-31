@@ -2,16 +2,20 @@ package net.ow.movie.tmdb.model.discover;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.InstantSerializer;
 import java.math.BigDecimal;
 import java.time.Instant;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import net.ow.shared.common.server.annotation.QueryParameter;
+import net.ow.shared.jsonutils.deserializer.DateInstantDeserializer;
+import net.ow.shared.jsonutils.serializer.DateInstantSerializer;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TMDBDiscoverMovieRequest {
     @QueryParameter(name = "certification")
     private String certification;
@@ -38,26 +42,26 @@ public class TMDBDiscoverMovieRequest {
     @QueryParameter(name = "primary_release_year")
     private Integer primaryReleaseYear;
 
-    @JsonSerialize(using = InstantSerializer.class)
-    @JsonDeserialize(using = InstantDeserializer.class)
+    @JsonSerialize(using = DateInstantSerializer.class)
+    @JsonDeserialize(using = DateInstantDeserializer.class)
     @QueryParameter(name = "primary_release_date.gte")
     private Instant primaryReleaseDateGreaterThen;
 
-    @JsonSerialize(using = InstantSerializer.class)
-    @JsonDeserialize(using = InstantDeserializer.class)
+    @JsonSerialize(using = DateInstantSerializer.class)
+    @JsonDeserialize(using = DateInstantDeserializer.class)
     @QueryParameter(name = "primary_release_date.lte")
     private Instant primaryReleaseDateLessThen;
 
     private String region;
 
     @QueryParameter(name = "release_date.gte")
-    @JsonSerialize(using = InstantSerializer.class)
-    @JsonDeserialize(using = InstantDeserializer.class)
+    @JsonSerialize(using = DateInstantSerializer.class)
+    @JsonDeserialize(using = DateInstantDeserializer.class)
     private Instant releaseDateGreaterThen;
 
     @QueryParameter(name = "release_date.lte")
-    @JsonSerialize(using = InstantSerializer.class)
-    @JsonDeserialize(using = InstantDeserializer.class)
+    @JsonSerialize(using = DateInstantSerializer.class)
+    @JsonDeserialize(using = DateInstantDeserializer.class)
     private Instant releaseDateLessThen;
 
     @QueryParameter(name = "sort_by")
