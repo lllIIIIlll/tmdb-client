@@ -1,8 +1,10 @@
 package net.ow.movie.tmdb.feign;
 
+import java.util.List;
 import net.ow.movie.tmdb.config.TMDBFeignClientConfig;
 import net.ow.movie.tmdb.model.common.TMDBDateRangePaginatedResponse;
 import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
+import net.ow.movie.tmdb.model.country.TMDBBaseCountry;
 import net.ow.movie.tmdb.model.discover.TMDBDiscoverMovieRequest;
 import net.ow.movie.tmdb.model.discover.TMDBDiscoverTVShowRequest;
 import net.ow.movie.tmdb.model.genre.TMDBGenreList;
