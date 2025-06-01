@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TMDBCountry {
+public class TMDBBaseCountry {
     @JsonAlias("iso_3166_1")
     private String iso31661;
 

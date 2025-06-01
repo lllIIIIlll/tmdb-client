@@ -29,4 +29,3 @@ tmdb:
     genre:
       movie: /genre/movie/list
       tv-show: /genre/tv/list
-

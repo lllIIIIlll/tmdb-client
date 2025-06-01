@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 import net.ow.movie.tmdb.deserializer.ImagePathDeserializer;
 import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
 import net.ow.movie.tmdb.model.company.TMDBBaseCompany;
-import net.ow.movie.tmdb.model.country.TMDBCountry;
+import net.ow.movie.tmdb.model.country.TMDBBaseCountry;
 import net.ow.movie.tmdb.model.genre.TMDBGenre;
 import net.ow.movie.tmdb.model.language.TMDBLanguage;
 import net.ow.movie.tmdb.model.network.TMDBNetwork;
@@ -104,7 +104,7 @@ public class TMDBTVShow {
     private List<TMDBBaseCompany> productionCompanies;
 
     @JsonAlias("production_countries")
-    private List<TMDBCountry> productionCountries;
+    private List<TMDBBaseCountry> productionCountries;
 
     private List<TMDBBaseTVSeason> seasons;
 
