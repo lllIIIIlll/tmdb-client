@@ -1,8 +1,10 @@
 package net.ow.movie.tmdb.feign;
 
+import java.util.List;
 import net.ow.movie.tmdb.config.TMDBFeignClientConfig;
 import net.ow.movie.tmdb.model.common.TMDBDateRangePaginatedResponse;
 import net.ow.movie.tmdb.model.common.TMDBPaginatedResponse;
+import net.ow.movie.tmdb.model.country.TMDBCountry;
 import net.ow.movie.tmdb.model.discover.TMDBDiscoverMovieRequest;
 import net.ow.movie.tmdb.model.discover.TMDBDiscoverTVShowRequest;
 import net.ow.movie.tmdb.model.genre.TMDBGenreList;
@@ -118,4 +120,7 @@ public interface TMDBFeignClient {
 
     @GetMapping("${tmdb.uri.genre.tv-show}")
     TMDBGenreList getTVShowGenres(@RequestParam("language") String language);
+
+    @GetMapping("${tmdb.uri.configuration.countries}")
+    List<TMDBCountry> getCountries(@RequestParam("language") String language);
 }
